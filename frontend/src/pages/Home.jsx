@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import React from "react";
 import black_logo from "/black_logo.png";
 import bagare_bild from "/bagare_bild.jpg";
@@ -13,6 +13,9 @@ import empty from "/empty.svg"
 import plusUser from "/plus_user.svg"
 
 export default function HomePage() {
+
+  const { setChatOpen } = useOutletContext();
+
   return (
     <div className="w-full">
       {/* Första sektionen: Logotyp och titel – fyller hela viewporten */}
@@ -117,90 +120,92 @@ export default function HomePage() {
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-4 mt-8">
     
     {/* Kort 1 */}
-    <div className="relative bg-white rounded-md shadow-lg p-6
-                    transform transition-transform duration-300
-                    hover:scale-105 hover:shadow-xl">
-      <img
-        src={ingredients}
-        alt="Ingredienser ikon"
-        className="mx-auto mb-4 w-10 h-10"
-      />
-      <h3 className="text-xl font-bold text-black text-center mb-2">Recept via Ingredienser</h3>
+    <Link to="/imagerecipe">
+      <div className="relative bg-white rounded-md shadow-lg p-6
+                      transform transition-transform duration-300
+                      hover:scale-105 hover:shadow-xl">
+        <img
+          src={ingredients}
+          alt="Ingredienser ikon"
+          className="mx-auto mb-4 w-10 h-10"
+        />
+        <h3 className="text-xl font-bold text-black text-center mb-2">Recept via Ingredienser</h3>
       
-      <div className="mt-4">
-        <p className="text-center">
-          Ta en bild på dina ingredienser som du önskar att använda och få ett recept på nolltid.
-        </p>
-        
-        
-       
+        <div className="mt-4">
+          <p className="text-center pb-5">
+            Ta en bild på dina ingredienser som du önskar att använda och få ett recept på nolltid.
+          </p>
+      
+      
+      
+        </div>
       </div>
-    </div>
+    </Link>
 
     {/* Kort 2 */}
-    <div className="bg-white rounded-md shadow-lg p-6
-                    transform transition-transform duration-300
-                    hover:scale-105 hover:shadow-xl">
-
-      <img
-        src={plate}
-        alt="Ingredienser ikon"
-        className="mx-auto mb-4 w-10 h-10"
-      />
-      <h3 className="text-xl font-bold text-black text-center mb-2">Recept via Maträtt</h3>
+    <Link to="/imagerecipeplate">
+      <div className="bg-white rounded-md shadow-lg p-6
+                      transform transition-transform duration-300
+                      hover:scale-105 hover:shadow-xl">
+        <img
+          src={plate}
+          alt="Ingredienser ikon"
+          className="mx-auto mb-4 w-10 h-10"
+        />
+        <h3 className="text-xl font-bold text-black text-center mb-2">Recept via Maträtt</h3>
       
-      <div className="mt-4">
-        <p className="text-center">
-          Ta en bild på en maträtt, oavsett om du befinner dig på en resturang eller hemma och få reda på hur man tillagar det helt på egen hand.
-        </p>
-        
-        
-       
+        <div className="mt-4">
+          <p className="text-center">
+            Ta en bild på en maträtt, oavsett om du befinner dig på en resturang eller hemma och få reda på hur man tillagar det helt på egen hand.
+          </p>
+      
+      
+      
+        </div>
+      
       </div>
-    
-    </div>
+    </Link>
 
     {/* Kort 3 */}
-    <div className="bg-white rounded-md shadow-lg p-6
-                    transform transition-transform duration-300
-                    hover:scale-105 hover:shadow-xl">
-
-<     img
+    <div
+      onClick={() => setChatOpen(true)}
+      className="bg-white rounded-md shadow-lg p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+    >
+      <img
         src={chef}
-        alt="Ingredienser ikon"
+        alt="Digitala Kocken"
         className="mx-auto mb-4 w-10 h-10"
       />
       <h3 className="text-xl font-bold text-black text-center mb-2">Digitala Kocken</h3>
-      
       <div className="mt-4">
         <p className="text-center">
-          Använd dig utav din helt personliga assistent i köket och lista ut vad man ska dricka till maten eller hur vilken ingrediens som kan bytas ut till något annat.
+        Använd dig utav din helt personliga assistent i köket och lista ut vad man ska dricka 
+        till maten eller hur vilken ingrediens som kan bytas ut till något annat.
         </p>
-        
-        
-       
       </div>
     </div>
-    <div className="bg-white rounded-md shadow-lg p-6
-                    transform transition-transform duration-300
-                    hover:scale-105 hover:shadow-xl">
 
-      <img
-        src={kitchen}
-        alt="Ingredienser ikon"
-        className="mx-auto mb-4 w-10 h-10"
-      />
-      <h3 className="text-xl font-bold text-black text-center mb-2">Mitt Kök</h3>
+    <Link to="/my-items">
+      <div className="bg-white rounded-md shadow-lg p-6
+                      transform transition-transform duration-300
+                      hover:scale-105 hover:shadow-xl">
+        <img
+          src={kitchen}
+          alt="Ingredienser ikon"
+          className="mx-auto mb-4 w-10 h-10"
+        />
+        <h3 className="text-xl font-bold text-black text-center mb-2">Mitt Kök</h3>
       
-      <div className="mt-4">
-        <p className="text-center">
-          Efter du har varit och handlat så kan du enkelt ta bild på dina råvaror och lagra dem i ditt kök, håll enkelt koll på vad du har hemma med några knapptryck.
-        </p>
-        
-        
-       
+        <div className="mt-4">
+          <p className="text-center">
+            Efter du har varit och handlat så kan du enkelt ta bild på dina råvaror och lagra dem i ditt kök, håll enkelt koll på vad du har hemma med några knapptryck.
+          </p>
+      
+      
+      
+        </div>
       </div>
-    </div>
+    </Link>
 
     {/* Bli medlem-knapp nedanför kolumnerna (om du vill ha den i grid-raden) */}
     
@@ -220,7 +225,7 @@ export default function HomePage() {
         
         <div className="text-center mx-auto">
           <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black pt-6">Credits</h3>
-           <p className="text-gray-900 text-m text-center sm:text-l md:text-xl mt-2">När man blir medlem så startar man med 100 credits. <br/> Alla Ai-funktioner kommer dra av en bestämd mängd credits från ditt konto varje gång de används.</p>
+           <p className="text-gray-900 text-m text-center sm:text-l md:text-xl mt-2 px-1">När man blir medlem så startar man med 100 credits. <br/> Alla Ai-funktioner kommer dra av en bestämd mängd credits från ditt konto varje gång de används.</p>
           
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center pt-6 gap-8 max-w-7xl mx-auto px-4 pb-10">
@@ -320,12 +325,7 @@ export default function HomePage() {
               </li>
             </ul>
           </div>
-        
-
-            
-
         </div>
-        
       </section>
     </div>
   );
