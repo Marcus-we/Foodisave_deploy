@@ -179,8 +179,8 @@ export default function HomePage() {
       <h3 className="text-xl font-bold text-black text-center mb-2">Digitala Kocken</h3>
       <div className="mt-4">
         <p className="text-center">
-        Använd dig utav din helt personliga assistent i köket och lista ut vad man ska dricka 
-        till maten eller hur vilken ingrediens som kan bytas ut till något annat.
+        Använd dig utav din helt personliga assistent i köket och få tips på vad man kan dricka 
+        till maten eller få hjälp med att byta ut en ingrediens till något annat.
         </p>
       </div>
     </div>
