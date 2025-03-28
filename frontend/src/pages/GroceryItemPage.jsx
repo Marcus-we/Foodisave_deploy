@@ -27,7 +27,6 @@ export default function GroceryItems() {
 
   // Fetch saved items from the API
   const fetchSavedItems = async () => {
-
     try {
       const response = await fetch(`${apiUrl}/saved-items`, {
         method: "GET",
@@ -75,7 +74,7 @@ export default function GroceryItems() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch(`${apiUrl}/save-bought-items`, {
         method: "POST",
         body: formData,
         headers: {
