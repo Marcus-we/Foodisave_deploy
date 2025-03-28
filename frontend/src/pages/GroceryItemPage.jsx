@@ -28,8 +28,6 @@ export default function GroceryItems() {
   // Fetch saved items from the API
   const fetchSavedItems = async () => {
 
-    if (!token) return;
-
     try {
       const response = await fetch(`${apiUrl}/saved-items`, {
         method: "GET",
